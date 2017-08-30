@@ -7,7 +7,19 @@ Very simple library to create [NightmareJS](https://github.com/segmentio/nightma
 Install
 -------
 
+if you want to use it, you can use the npm published module
+
     npm install wat-action 
+
+
+Otherwize, you can clone it and  you webpack to build it.
+npm test will ask webpack to build the library (lib/index.js).
+
+    clone https://github.com/webautotester/action.git
+    npm install
+    npm test
+
+
 
 
 Action

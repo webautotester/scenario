@@ -4,7 +4,7 @@
   "description": "JS Library For NightmareJS Actions",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "webpack",
+    "pretest": "webpack",
     "test": "mocha"
   },
   "author": "Xavier Blanc",

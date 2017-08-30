@@ -36,7 +36,7 @@ describe('Execute Actions', function () {
         
 
 		it('it should go to duckduckgo and click', function(done) {
-			var nightmare = new Nightmare({show:true});
+			var nightmare = new Nightmare({show:false});
 			clickAction.attachTo(gotoAction.attachTo(nightmare))
 				.evaluate(function () {
 					return document;
@@ -54,7 +54,7 @@ describe('Execute Actions', function () {
         
 
 		it('it should go to duckduckgo, click and type', function(done) {
-			var nightmare = new Nightmare({show:true});
+			var nightmare = new Nightmare({show:false});
 			typeAction.attachTo(clickAction.attachTo(gotoAction.attachTo(nightmare)))
 				.evaluate(function () {
 					return document;
@@ -74,7 +74,7 @@ describe('Execute Actions', function () {
 
 	describe('scenario', function() {
 		it('it should play the scenario', function(done) {
-			var nightmare = new Nightmare({show:true});
+			var nightmare = new Nightmare({show:false});
 			scenario.attachTo(nightmare)
 				.evaluate(function () {
 					return document;

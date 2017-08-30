@@ -1,7 +1,7 @@
 JS Library For NightMareJS Actions
 ==================================
 
-Very simple library to create NightmareJS actions and scenario.
+Very simple library to create [NightmareJS](https://github.com/segmentio/nightmare) actions and scenario.
 
 
 Install

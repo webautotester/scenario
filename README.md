@@ -4,6 +4,12 @@ JS Library For NightMareJS Actions
 Very simple library to create NightmareJS actions and scenario.
 
 
+Install
+-------
+
+    npm install wat-action 
+
+
 Action
 ------
 

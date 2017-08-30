@@ -1,10 +1,15 @@
 const path = require('path');
-const glob = require('glob');
+const libraryName = 'index';
+const outputFile = libraryName + '.js';
+
 
 module.exports = {
-	entry: { 'src' : glob.sync('./src/*.js') },  
+	entry: './src/library.js',  
 	output: {
-		filename: 'index.js',
-		path: path.resolve(__dirname, 'lib')
+		filename: outputFile,
+		path: path.resolve(__dirname, 'lib'),
+		library: libraryName,
+		libraryTarget: 'umd',
+		umdNamedDefine: true
 	}
 };

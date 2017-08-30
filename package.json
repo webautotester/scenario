@@ -1,7 +1,8 @@
 {
-    "name": "action",
+    "name": "wat-action",
     "version": "1.0.0",
     "description": "JS Library For NightmareJS Actions",
+    "main": "./lib/index.js",
     "scripts": {
         "build": "webpack",
         "test": "echo \"Error: no test specified\" && exit 1"

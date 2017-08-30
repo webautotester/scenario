@@ -18,7 +18,7 @@ describe('Execute Actions', function () {
 	this.timeout(40000);    
 	describe('simple actions', function() {
 		it('it should go to duckduckgo', function(done) {
-			var nightmare = new Nightmare({show:true});
+			var nightmare = new Nightmare({show:false});
 			gotoAction.attachTo(nightmare)
 				.evaluate(function () {
 					return document;

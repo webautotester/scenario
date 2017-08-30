@@ -6,8 +6,8 @@ export default class WaitAction extends Action {
 		this.ms = ms;
 	}
 
-	attachTo(promise) {
-		return promise.wait(this.ms);
+	attachTo(nightmare) {
+		return nightmare.wait(this.ms);
 	}
 
 	toString() {

@@ -7,8 +7,8 @@ export default class ScrollToAction extends Action {
 		this.y = y;
 	}
 
-	attachTo(promise) {
-		return promise.scrollTo(this.x, this.y);
+	attachTo(nightmare) {
+		return nightmare.scrollTo(this.x, this.y);
 	}
 
 	toString() {

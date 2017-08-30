@@ -6,8 +6,8 @@ export default class GotoAction extends Action {
 		this.url = url;
 	}
 
-	attachTo(promise) {
-		return promise.goto(this.url);
+	attachTo(nightmare) {
+		return nightmare.goto(this.url);
 	}
 
 	toString() {

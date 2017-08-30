@@ -12,8 +12,6 @@ export default class Scenario {
 		}
 	}
 
-    
-
 	toString() {
 		return `[${this.actions.join(', ')}]`;
 	}
@@ -25,7 +23,6 @@ export default class Scenario {
 		if (this.index === 0) {
 			this.actions.push(action);
 		}
-
 	}
 
 	get level() {
@@ -38,7 +35,6 @@ export default class Scenario {
 		} else {
 			return this.index < this.actions.length;
 		}
-
 	}
 
 	next() {
@@ -62,5 +58,17 @@ export default class Scenario {
 		} else {
 			return false;
 		}
+	}
+
+	attachTo(nightmare) {
+		return attachTo(nightmare, this.actions);
+	}
+}
+
+function attachTo(nightmare, actions) {
+	if (actions.length === 0) return nightmare;
+	else {
+		const currentAction = actions.shift();
+		return attachTo(currentAction.attachTo(nightmare) , actions);
 	}
 }

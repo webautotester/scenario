@@ -7,8 +7,8 @@ export default class TypeAction extends Action {
 		this.text = text;
 	}
 
-	attachTo(promise) {
-		return promise.type(this.selector, this.text);
+	attachTo(nightmare) {
+		return nightmare.type(this.selector, this.text);
 	}
 
 	toString() {

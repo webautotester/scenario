@@ -12,7 +12,7 @@ if you want to use it, you can use the npm published module
     npm install wat-action 
 
 
-Otherwize, you can clone it and  you webpack to build it.
+Otherwize, you can clone it and use webpack to build it.
 npm test will ask webpack to build the library (lib/index.js).
 
     clone https://github.com/webautotester/action.git

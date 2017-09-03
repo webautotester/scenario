@@ -16,6 +16,10 @@ export default class Scenario {
 		return `[${this.actions.join(', ')}]`;
 	}
 
+	toJSON() {
+		return JSON.stringify(this.actions);
+	}
+
 	addAction(action) {
 		if (this.index === undefined) {
 			this.index = 0;

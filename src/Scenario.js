@@ -21,28 +21,11 @@ export default class Scenario {
 	}
 
 	addAction(action) {
-		if (this.index === undefined) {
-			this.index = 0;
-		}
-		if (this.index === 0) {
-			this.actions.push(action);
-		}
+		this.actions.push(action);
 	}
 
-	get level() {
+	get depth() {
 		return this.actions.length;
-	}
-
-	hasNext() {
-		if (this.index === undefined) {
-			return false;
-		} else {
-			return this.index < this.actions.length;
-		}
-	}
-
-	next() {
-		return this.actions[this.index++];
 	}
 
 	duplicate() {
@@ -64,8 +47,8 @@ export default class Scenario {
 		}
 	}
 
-	attachTo(nightmare) {
-		return attachTo(nightmare, this.actions);
+	attachTo(browser) {
+		return attachTo(browser, this.actions);
 	}
 }
 

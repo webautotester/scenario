@@ -1,7 +1,7 @@
 import SelectorAction from './SelectorAction';
 
 export default class ClickAction extends SelectorAction {
-	attachTo(nightmare) {
-		return nightmare.click(this.selector);
+	attachTo(browser) {
+		return browser.click(this.selector);
 	}
 }

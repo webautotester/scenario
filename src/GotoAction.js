@@ -6,8 +6,8 @@ export default class GotoAction extends Action {
 		this.url = url;
 	}
 
-	attachTo(nightmare) {
-		return nightmare.goto(this.url);
+	attachTo(browser) {
+		return browser.goto(this.url);
 	}
 
 	toString() {

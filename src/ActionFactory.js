@@ -1,6 +1,5 @@
 import GotoAction from './GotoAction';
 import ClickAction from './ClickAction';
-import CheckAction from './CheckAction';
 import MouseOverAction from './MouseOverAction';
 import TypeAction from './TypeAction';
 import ScrollToAction from './ScrollToAction';
@@ -13,8 +12,6 @@ export function createAction(actionJSON) {
 		return new GotoAction(actionJSON.url);
 	case 'ClickAction':
 		return new ClickAction(actionJSON.selector);
-	case 'CheckAction':
-		return new CheckAction(actionJSON.selector);
 	case 'MouseOverAction':
 		return new MouseOverAction(actionJSON.selector);
 	case 'TypeAction':

@@ -7,8 +7,8 @@ export default class TypeAction extends Action {
 		this.text = text;
 	}
 
-	attachTo(nightmare) {
-		return nightmare.type(this.selector, this.text);
+	attachTo(browser) {
+		return browser.type(this.selector, this.text);
 	}
 
 	toString() {

@@ -6,8 +6,8 @@ export default class WaitAction extends Action {
 		this.ms = ms;
 	}
 
-	attachTo(nightmare) {
-		return nightmare.wait(this.ms);
+	attachTo(browser) {
+		return browser.wait(this.ms);
 	}
 
 	toString() {

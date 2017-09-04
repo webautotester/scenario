@@ -1,7 +1,6 @@
 import * as ActionFactory from './ActionFactory';
 import GotoAction from './GotoAction';
 import ClickAction from './ClickAction';
-import CheckAction from './CheckAction';
 import MouseOverAction from './MouseOverAction';
 import TypeAction from './TypeAction';
 import ScrollToAction from './ScrollToAction';
@@ -12,7 +11,6 @@ import Scenario from './Scenario';
 export {
 	GotoAction,
 	ClickAction,
-	CheckAction,
 	MouseOverAction,
 	TypeAction,
 	ScrollToAction,

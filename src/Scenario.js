@@ -2,60 +2,69 @@ import * as ActionFactory from './ActionFactory';
 
 export default class Scenario {
 
-	constructor(actionsJSON) {
-		this.actions = [];
-		this.index = undefined;
-		if (actionsJSON) {
-			actionsJSON.forEach(ac => {
-				this.addAction(ActionFactory.createAction(ac));
-			});
-		}
-	}
+    constructor(actionsJSON) {
+        this.actions = [];
+        this.index = undefined;
+        if (actionsJSON) {
+            actionsJSON.forEach(ac => {
+                this.addAction(ActionFactory.createAction(ac));
+        });
+        }
+    }
 
-	toString() {
-		return `[${this.actions.join(', ')}]`;
-	}
+    toString() {
+        return `[${this.actions.join(', ')}]`;
+    }
 
-	toJSON() {
-		return JSON.stringify(this.actions);
-	}
+    toJSON() {
+        return JSON.stringify(this.actions);
+    }
 
-	addAction(action) {
-		this.actions.push(action);
-	}
+    addAction(action) {
+        this.actions.push(action);
+    }
 
-	get depth() {
-		return this.actions.length;
-	}
+    addOrUpdateWait(waitTime) {
+        const newActions = [];
+        this.actions.filter((action) => action.type !== new WaitAction().type).forEach((action) => {
+            newActions.push(action);
+        newActions.push(new WaitAction(waitTime));
+    });
+        this.actions = newActions;
+    }
 
-	duplicate() {
-		var dupication = new Scenario();
-		this.actions.forEach(ac => dupication.addAction(ac));
-		return dupication;
-	}
+    get depth() {
+        return this.actions.length;
+    }
 
-	equalsTo(scenario) {
-		if (this.actions.length === scenario.actions.length) {
-			for (var i = 0; i < this.actions.length; i++) {
-				if (! this.actions[i].equalsTo(scenario.actions[i])) {
-					return false;
-				}
-			}
-			return true;
-		} else {
-			return false;
-		}
-	}
+    duplicate() {
+        var dupication = new Scenario();
+        this.actions.forEach(ac => dupication.addAction(ac));
+        return dupication;
+    }
 
-	attachTo(browser) {
-		return attachTo(browser, this.actions);
-	}
+    equalsTo(scenario) {
+        if (this.actions.length === scenario.actions.length) {
+            for (var i = 0; i < this.actions.length; i++) {
+                if (! this.actions[i].equalsTo(scenario.actions[i])) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    attachTo(browser) {
+        return attachTo(browser, this.actions);
+    }
 }
 
 function attachTo(nightmare, actions) {
-	if (actions.length === 0) return nightmare;
-	else {
-		const currentAction = actions.shift();
-		return attachTo(currentAction.attachTo(nightmare) , actions);
-	}
+    if (actions.length === 0) return nightmare;
+    else {
+        const currentAction = actions.shift();
+        return attachTo(currentAction.attachTo(nightmare) , actions);
+    }
 }

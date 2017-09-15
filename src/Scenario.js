@@ -21,6 +21,12 @@ export default class Scenario {
 	}
 
 	addAction(action) {
+		if (this.actions.length
+				&& action.type === 'TypeAction'
+				&& this.actions[this.actions.length - 1].type === 'TypeAction'
+				&& this.actions[this.actions.length - 1].selector === action.selector) {
+			this.actions.pop();
+		}
 		this.actions.push(action);
 	}
 

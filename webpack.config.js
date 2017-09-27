@@ -11,5 +11,13 @@ module.exports = {
 		library: libraryName,
 		libraryTarget: 'umd',
 		umdNamedDefine: true
-	}
+	},
+	module: {
+		rules: [{
+			test: /\.jsx?$/,
+			exclude: /node_modules/,
+			include: path.resolve(__dirname,'src'),
+			use: 'babel-loader'
+		}]
+	},
 };

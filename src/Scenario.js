@@ -31,11 +31,13 @@ export default class Scenario {
 	}
 
 	addOrUpdateWait(waitTime) {
-		const newActions = [];
-		this.actions.filter((action) => action.type !== new WaitAction().type).forEach((action) => {
-			newActions.push(action);
-			newActions.push(new WaitAction(waitTime));
-		});
+		var newActions = [];
+		for (var index = 0; index < this.actions.length; index++) {
+			newActions.push(this.actions[index]);
+			if (this.actions[index] !== 'WaitAction') {
+				newActions.push(new WaitAction(waitTime));
+			}
+		}
 		this.actions = newActions;
 	}
 

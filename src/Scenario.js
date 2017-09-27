@@ -21,24 +21,7 @@ export default class Scenario {
 	}
 
 	addAction(action) {
-		if (this.actions.length
-				&& action.type === 'TypeAction'
-				&& this.actions[this.actions.length - 1].type === 'TypeAction'
-				&& this.actions[this.actions.length - 1].selector === action.selector) {
-			this.actions.pop();
-		}
 		this.actions.push(action);
-	}
-
-	addOrUpdateWait(waitTime) {
-		var newActions = [];
-		for (var index = 0; index < this.actions.length; index++) {
-			newActions.push(this.actions[index]);
-			if (this.actions[index] !== 'WaitAction') {
-				newActions.push(new WaitAction(waitTime));
-			}
-		}
-		this.actions = newActions;
 	}
 
 	get depth() {

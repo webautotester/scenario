@@ -5,6 +5,7 @@ import TypeAction from './TypeAction';
 import ScrollToAction from './ScrollToAction';
 import WaitAction from './WaitAction';
 import BackAction from './BackAction';
+import SelectAction from './SelectAction';
 
 export function createAction(actionJSON) {
 	switch (actionJSON.type) {
@@ -22,6 +23,8 @@ export function createAction(actionJSON) {
 		return new WaitAction(actionJSON.ms);
 	case 'BackAction':
 		return new BackAction();
+	case 'SelectAction':
+		return new SelectAction(actionJSON.selector, actionJSON.option);
 	}
 	return new WaitAction(1000);
 }

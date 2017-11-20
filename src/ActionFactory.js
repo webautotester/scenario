@@ -1,6 +1,8 @@
 import GotoAction from './GotoAction';
 import ClickAction from './ClickAction';
 import MouseOverAction from './MouseOverAction';
+import MouseDownAction from './MouseDownAction';
+import MouseUpAction from './MouseUpAction';
 import TypeAction from './TypeAction';
 import ScrollToAction from './ScrollToAction';
 import WaitAction from './WaitAction';
@@ -15,6 +17,10 @@ export function createAction(actionJSON) {
 		return new ClickAction(actionJSON.selector);
 	case 'MouseOverAction':
 		return new MouseOverAction(actionJSON.selector);
+	case 'MouseUpAction':
+		return new MouseUpAction(actionJSON.selector);
+	case 'MouseDownAction':
+		return new MouseDownAction(actionJSON.selector);
 	case 'TypeAction':
 		return new TypeAction(actionJSON.selector, actionJSON.text);
 	case 'ScrollToAction':

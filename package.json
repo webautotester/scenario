@@ -1,6 +1,6 @@
 {
   "name": "wat_action_nightmare",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "JS Library For NightmareJS Actions",
   "main": "./lib/index.js",
   "scripts": {

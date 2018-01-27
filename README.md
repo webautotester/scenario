@@ -7,15 +7,9 @@ Very simple library to create [NightmareJS](https://github.com/segmentio/nightma
 Install
 -------
 
-if you want to use it, you can use the npm published module
+if you want to use it:
 
-    npm install wat-action 
-
-
-Otherwize, you can clone it and use webpack to build it.
-npm test will ask webpack to build the library (lib/index.js).
-
-    clone https://github.com/webautotester/action.git
+    clone https://github.com/webautotester/scenario.git
     npm install
     npm test
 
@@ -53,28 +47,6 @@ You can attach action to Nightmare
 
     const Nightmare = require('nightmare');	
     const nightmare = new Nightmare({show:true});
-    gotoAction.attachTo(nightmare)
-    .evaluate(function () {
-		return document;
-	})
-	.end()
-	.then((doc) => {
-        //...
-	})
-	.catch ( (e) => {
-        //...
-    });
+    let run = await scenario.nightmareRun(nightmare);
+	console.log(JSON.stringify(run));
 
-or a scenario
-
-    scenario.attachTo(nightmare)
-	.evaluate(function () {
-	    return document;
-	})
-	.end()
-	.then((doc) => {
-        //...
-	})
-	.catch ( (e) => {
-        //...
-    });

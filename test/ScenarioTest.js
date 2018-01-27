@@ -56,19 +56,10 @@ describe('Execute Actions', function () {
 	this.timeout(40000);
 	describe('Run Scenario', function() {
 		it('should run the scenario with chrome', async function() {
-			var nightmare = new Nightmare({show:true});
-			try {
-				await scenario.nightmareRun(nightmare);
-				nightmare.end().then(()=>{
-					console.log('ok');
-				}).catch(err => {
-					console.log(err);
-					done();
-				})
-				
-			} catch(err) {
-				console.log(err);
-			}
+			let nightmare = new Nightmare({show:true});
+			let run = await scenario.nightmareRun(nightmare);
+			console.log(JSON.stringify(run));
+			assert(run.success);
 		});
 	});
 });

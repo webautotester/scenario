@@ -52,11 +52,22 @@ export default class Scenario {
 	}
 
 	async nightmareRun(browser) {
-		for (let i=0 ; i < this.actions.length; i++) {
-			console.log(`run ${this.actions[i].toString()}`);
-			await this.actions[i].nightmareRun(browser);
+		let i;
+		try {
+			for (i=0 ; i < this.actions.length; i++) {
+				await this.actions[i].nightmareRun(browser);
+			}
+			return {
+				success : true,
+				runnedActions : i
+			}
+		} catch(err) {
+			return {
+				success : true,
+				runnedActions : i,
+				error : err
+			}
 		}
-
 	}
 }
 

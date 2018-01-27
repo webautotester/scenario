@@ -4,7 +4,7 @@ const outputFile = libraryName + '.js';
 
 
 module.exports = {
-	entry: './src/library.js',  
+	entry: ['babel-polyfill','./src/library.js'],  
 	output: {
 		filename: outputFile,
 		path: path.resolve(__dirname, 'lib'),

@@ -11,6 +11,10 @@ export default class TypeAction extends Action {
 		return browser.type(this.selector, this.text);
 	}
 
+	nightmareRun(nightmare) {
+		return nightmare.type(this.selector, this.text);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.selector}, ${this.text}`;
 	}

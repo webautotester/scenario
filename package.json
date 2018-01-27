@@ -20,5 +20,7 @@
     "nightmare": "^2.10.0",
     "webpack": "^3.5.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
 }

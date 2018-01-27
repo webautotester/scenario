@@ -14,4 +14,8 @@ export default class SelectAction extends SelectorAction {
 	attachTo(browser) {
 		return browser.select(this.selector, this.option);
 	}
+
+	nightmareRun(nightmare) {
+		return nightmare.select(this.selector, this.option);
+	}
 }

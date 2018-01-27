@@ -11,6 +11,10 @@ export default class ScrollToAction extends Action {
 		return browser.scrollTo(this.x, this.y);
 	}
 
+	nightmareRun(nightmare) {
+		return nightmare.scrollTo(this.x, this.y);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.x}, ${this.y}`;
 	}

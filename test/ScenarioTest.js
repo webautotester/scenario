@@ -55,21 +55,20 @@ describe('Save and Load Scenario', function () {
 describe('Execute Actions', function () {
 	this.timeout(40000);
 	describe('Run Scenario', function() {
-		it('should run the scenario with chrome', function(done) {
+		it('should run the scenario with chrome', async function() {
 			var nightmare = new Nightmare({show:true});
-			scenario.attachTo(nightmare)
-				.evaluate( () => {
-
+			try {
+				await scenario.nightmareRun(nightmare);
+				nightmare.end().then(()=>{
+					console.log('ok');
+				}).catch(err => {
+					console.log(err);
+					done();
 				})
-				.end()
-				.then(() => {
-					assert(true);
-					done();
-				}) 
-				.catch ( (e) => {
-					assert(false);
-					done();
-				});
+				
+			} catch(err) {
+				console.log(err);
+			}
 		});
 	});
 });

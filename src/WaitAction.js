@@ -10,6 +10,10 @@ export default class WaitAction extends Action {
 		return browser.wait(this.ms);
 	}
 
+	nightmareRun(nightmare) {
+		return nightmare.wait(this.ms);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.ms}ms`;
 	}

@@ -5,4 +5,8 @@ export default class BackAction extends Action {
 	attachTo(browser) {
 		return browser.back();
 	}
+
+	nightmareRun(nightmare) {
+		return nightmare.back();
+	}
 }

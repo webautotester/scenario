@@ -50,6 +50,14 @@ export default class Scenario {
 	attachTo(browser) {
 		return attachTo(browser, this.actions);
 	}
+
+	async nightmareRun(browser) {
+		for (let i=0 ; i < this.actions.length; i++) {
+			console.log(`run ${this.actions[i].toString()}`);
+			await this.actions[i].nightmareRun(browser);
+		}
+
+	}
 }
 
 function attachTo(nightmare, actions) {

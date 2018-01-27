@@ -11,6 +11,10 @@ export default class GotoAction extends Action {
 		return browser.goto(this.url, this.header);
 	}
 
+	nightmareRun(nightmare) {
+		return nightmare.goto(this.url, this.header);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.url}`;
 	}

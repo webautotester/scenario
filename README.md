@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/webautotester/scenario.svg?branch=master)](https://travis-ci.org/webautotester/scenario)
+
 JS Library For NightMareJS Actions
 ==================================
 

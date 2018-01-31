@@ -51,15 +51,3 @@ describe('Save and Load Scenario', function () {
 	});
 });
 
-
-describe('Execute Actions', function () {
-	this.timeout(40000);
-	describe('Run Scenario', function() {
-		it('should run the scenario with chrome', async function() {
-			let nightmare = new Nightmare({show:true});
-			let run = await scenario.nightmareRun(nightmare);
-			console.log(JSON.stringify(run));
-			assert(run.success);
-		});
-	});
-});

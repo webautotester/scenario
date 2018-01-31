@@ -9,4 +9,10 @@ export default class BackAction extends Action {
 	nightmareRun(nightmare) {
 		return nightmare.back();
 	}
+
+	chromelessRun(chromeless) {
+		//not implemented yet by chromeless
+		return chromeless;
+	}
+
 }

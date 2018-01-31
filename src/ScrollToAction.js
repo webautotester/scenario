@@ -15,6 +15,10 @@ export default class ScrollToAction extends Action {
 		return nightmare.scrollTo(this.x, this.y);
 	}
 
+	chromelessRun(chromeless) {
+		return chromeless.scrollToElement(this.selector);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.x}, ${this.y}`;
 	}

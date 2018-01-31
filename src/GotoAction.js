@@ -15,6 +15,10 @@ export default class GotoAction extends Action {
 		return nightmare.goto(this.url, this.header);
 	}
 
+	chromelessRun(chromeless) {
+		return chromeless.goto(this.url);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.url}`;
 	}

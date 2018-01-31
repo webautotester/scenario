@@ -8,4 +8,10 @@ export default class MouseOverAction extends SelectorAction {
 	nightmareRun(nightmare) {
 		return nightmare.mouseover(this.selector);
 	}
+
+	chromelessRun(chromeless) {
+		//does not exist in chromeless
+		return chromeless;
+	}
+
 }

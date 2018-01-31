@@ -9,5 +9,10 @@ export default class MouseDownAction extends SelectorAction {
 		return nightmare.mousedown(this.selector);
 	}
 
+	chromelessRun(chromeless) {
+		return chromeless.mousedown(this.selector);
+	}
+
+
 	
 }

@@ -14,6 +14,10 @@ export default class WaitAction extends Action {
 		return nightmare.wait(this.ms);
 	}
 
+	chromelessRun(chromeless) {
+		return chromeless.wait(this.ms);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.ms}ms`;
 	}

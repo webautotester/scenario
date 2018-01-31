@@ -63,7 +63,26 @@ export default class Scenario {
 			}
 		} catch(err) {
 			return {
+				success : false,
+				runnedActions : i,
+				error : err
+			}
+		}
+	}
+
+	async chromelessRun(browser) {
+		let i;
+		try {
+			for (i=0 ; i < this.actions.length; i++) {
+				await this.actions[i].chromelessRun(browser);
+			}
+			return {
 				success : true,
+				runnedActions : i
+			}
+		} catch(err) {
+			return {
+				success : false,
 				runnedActions : i,
 				error : err
 			}

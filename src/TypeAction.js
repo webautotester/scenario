@@ -15,6 +15,10 @@ export default class TypeAction extends Action {
 		return nightmare.type(this.selector, this.text);
 	}
 
+	chromelessRun(chromeless) {
+		return chromeless.type(this.text, this.selector);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.selector}, ${this.text}`;
 	}

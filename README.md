@@ -1,9 +1,11 @@
 [![Build Status](https://travis-ci.org/webautotester/scenario.svg?branch=master)](https://travis-ci.org/webautotester/scenario)
 
-JS Library For NightMareJS Actions
-==================================
+JS Library For Playing With Scraping Scenario (Compliant with NightMareJS and Chromeless)
+=========================================================================================
 
-Very simple library to create [NightmareJS](https://github.com/segmentio/nightmare) actions and scenario.
+Very simple library to create Scraping actions and scenario.
+
+Then Scenario can be played by [NightmareJS](https://github.com/segmentio/nightmare) or [Chromeless](https://github.com/graphcool/chromeless)
 
 
 Install
@@ -49,6 +51,16 @@ You can attach action to Nightmare
 
     const Nightmare = require('nightmare');	
     const nightmare = new Nightmare({show:true});
-    let run = await scenario.nightmareRun(nightmare);
+    let run = await scenario.run(nightmare, 'NIGHTMARE');
+	console.log(JSON.stringify(run));
+
+Run Chromeless 
+------------
+
+You can attach action to Nightmare
+
+    const {Chromeless} = require('chromeless');	
+    const chromeless = new Chromeless();
+    let run = await scenario.run(chromeless, 'CHROMELESS');
 	console.log(JSON.stringify(run));
 

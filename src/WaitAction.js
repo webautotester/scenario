@@ -6,16 +6,12 @@ export default class WaitAction extends Action {
 		this.ms = ms;
 	}
 
-	attachTo(browser) {
-		return browser.wait(this.ms);
-	}
-
 	nightmareRun(nightmare) {
 		return nightmare.wait(this.ms);
 	}
 
 	chromelessRun(chromeless) {
-		return chromeless.wait(this.ms);
+		return chromeless.wait(this.ms).html();
 	}
 
 	toString() {

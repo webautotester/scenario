@@ -47,15 +47,11 @@ export default class Scenario {
 		}
 	}
 
-	attachTo(browser) {
-		return attachTo(browser, this.actions);
-	}
-
-	async nightmareRun(browser) {
+	async run(browser, browserKind) {
 		let i;
 		try {
 			for (i=0 ; i < this.actions.length; i++) {
-				await this.actions[i].nightmareRun(browser);
+				await this.actions[i].run(browser, browserKind);
 			}
 			return {
 				success : true,
@@ -64,36 +60,9 @@ export default class Scenario {
 		} catch(err) {
 			return {
 				success : false,
-				runnedActions : i,
+				runnedActions : i-1,
 				error : err
 			}
 		}
-	}
-
-	async chromelessRun(browser) {
-		let i;
-		try {
-			for (i=0 ; i < this.actions.length; i++) {
-				await this.actions[i].chromelessRun(browser);
-			}
-			return {
-				success : true,
-				runnedActions : i
-			}
-		} catch(err) {
-			return {
-				success : false,
-				runnedActions : i,
-				error : err
-			}
-		}
-	}
-}
-
-function attachTo(nightmare, actions) {
-	if (actions.length === 0) return nightmare;
-	else {
-		const currentAction = actions.shift();
-		return attachTo(currentAction.attachTo(nightmare) , actions);
 	}
 }

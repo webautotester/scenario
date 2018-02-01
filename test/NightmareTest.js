@@ -16,9 +16,9 @@ scenario.addAction(waitAction);
 describe('Execute Actions', function () {
 	this.timeout(40000);
 	describe('Run Scenario', function() {
-		it('should run the scenario with chrome', async function() {
+		it('should run the scenario with Nightmare', async function() {
 			let nightmare = new Nightmare({show:true});
-			let run = await scenario.nightmareRun(nightmare);
+			let run = await scenario.run(nightmare, 'NIGHTMARE');
 			console.log(JSON.stringify(run));
 			assert(run.success);
 		});

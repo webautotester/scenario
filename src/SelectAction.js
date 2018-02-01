@@ -18,9 +18,4 @@ export default class SelectAction extends SelectorAction {
 	nightmareRun(nightmare) {
 		return nightmare.select(this.selector, this.option);
 	}
-
-	chromelessRun(chromeless) {
-		//does not exist in chromeless
-		return chromeless;
-	}
 }

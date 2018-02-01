@@ -7,16 +7,12 @@ export default class TypeAction extends Action {
 		this.text = text;
 	}
 
-	attachTo(browser) {
-		return browser.type(this.selector, this.text);
-	}
-
 	nightmareRun(nightmare) {
 		return nightmare.type(this.selector, this.text);
 	}
 
 	chromelessRun(chromeless) {
-		return chromeless.type(this.text, this.selector);
+		return chromeless.type(this.text, this.selector).html();
 	}
 
 	toString() {

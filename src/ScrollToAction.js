@@ -7,10 +7,6 @@ export default class ScrollToAction extends Action {
 		this.y = y;
 	}
 
-	attachTo(browser) {
-		return browser.scrollTo(this.x, this.y);
-	}
-
 	nightmareRun(nightmare) {
 		return nightmare.scrollTo(this.x, this.y);
 	}

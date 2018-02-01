@@ -1,7 +1,7 @@
 {
-  "name": "wat_action_nightmare",
-  "version": "1.0.14",
-  "description": "JS Library For NightmareJS Actions",
+  "name": "wat_scenario",
+  "version": "1.0.1",
+  "description": "JS Library For Creating Scrapping Scenario. Compliant with NightmareJS and Chromeless",
   "main": "./lib/index.js",
   "scripts": {
     "pretest": "webpack",

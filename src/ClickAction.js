@@ -27,7 +27,7 @@ export default class ClickAction extends SelectorAction {
 	}
 
 	chromelessRun(chromeless) {
-		return chromeless.click(this.selector).html();
+		return chromeless.click(this.selector);
 	}
 
 }

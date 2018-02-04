@@ -36,6 +36,10 @@ export default class GotoAction extends Action {
 		return chromeless.goto(this.url).html();
 	}
 
+	puppeteerRun(puppeteer) {
+		return puppeteer.goto(this.url);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.url}`;
 	}

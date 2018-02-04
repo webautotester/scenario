@@ -35,6 +35,10 @@ export default class WaitAction extends Action {
 		return chromeless.wait(this.ms).html();
 	}
 
+	puppeteerRun(puppeteer) {
+		return puppeteer.waitFor(this.ms);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.ms}ms`;
 	}

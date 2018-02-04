@@ -23,6 +23,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "chromeless": "^1.5.0",
-    "electron": "^1.7.11"
+    "electron": "^1.7.11",
+    "puppeteer": "^1.0.0"
   }
 }

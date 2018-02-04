@@ -30,4 +30,8 @@ export default class ClickAction extends SelectorAction {
 		return chromeless.click(this.selector);
 	}
 
+	puppeteerRun(puppeteer) {
+		return puppeteer.click(this.selector);
+	}
+
 }

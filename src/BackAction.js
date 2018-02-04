@@ -25,4 +25,8 @@ export default class BackAction extends Action {
 	nightmareRun(nightmare) {
 		return nightmare.back();
 	}
+
+	puppeteerRun(browser) {
+		return browser.goBack();
+	}
 }

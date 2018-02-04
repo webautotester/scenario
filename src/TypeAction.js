@@ -36,6 +36,10 @@ export default class TypeAction extends Action {
 		return chromeless.type(this.text, this.selector).html();
 	}
 
+	puppeteerRun(puppeteer) {
+		return puppeteer.type(this.selector, this.text);
+	}
+
 	toString() {
 		return `${super.toString()}: ${this.selector}, ${this.text}`;
 	}

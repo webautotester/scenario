@@ -42,12 +42,18 @@ export default class Action {
 		return chromeless;
 	}
 
+	puppeteerRun(puppeterPage) {
+		return puppeterPage;
+	}
+
 	run(browser, browserKind) {
 		switch (browserKind) {
 		case BrowserKind.NIGHTMARE:
 			return this.nightmareRun(browser);
 		case BrowserKind.CHROMELESS:
 			return this.chromelessRun(browser);
+		case BrowserKind.PUPPETEER:
+			return this.puppeteerRun(browser);
 		}
 	}
 }

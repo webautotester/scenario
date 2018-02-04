@@ -5,7 +5,7 @@ JS Library For Playing With Scraping Scenario (Compliant with NightMareJS and Ch
 
 Very simple library to create Scraping actions and scenario.
 
-Then Scenario can be played by [NightmareJS](https://github.com/segmentio/nightmare) or [Chromeless](https://github.com/graphcool/chromeless)
+Then Scenario can be played by [NightmareJS](https://github.com/segmentio/nightmare), [Chromeless](https://github.com/graphcool/chromeless) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).
 
 
 Install
@@ -17,13 +17,15 @@ if you want to use it:
     npm install
     npm test
 
+Or 
+    npm install wat_scenario
 
 
 
 Action
 ------
 
-The wat-action library defines a JavaScript class for NightmareJS action (Goto, Type, Click, Wait, Back, ScrollTo, Check).
+The wat-action library defines a JavaScript class for Scaping actions (Goto, Type, Click, Wait, Back, ScrollTo, Check, etc.).
 
     const wat_action = require('wat-action');
     const gotoAction = new wat_action.GotoAction('https://duckduckgo.com');
@@ -47,7 +49,7 @@ You can also create a scenario by adding actions to it.
 Run Nightmare 
 ------------
 
-You can attach action to Nightmare
+You can then ask a scenarion to be played by Nightmare
 
     const Nightmare = require('nightmare');	
     const nightmare = new Nightmare({show:true});
@@ -55,12 +57,23 @@ You can attach action to Nightmare
 	console.log(JSON.stringify(run));
 
 Run Chromeless 
-------------
+--------------
 
-You can attach action to Nightmare
+By Chromeless
 
     const {Chromeless} = require('chromeless');	
     const chromeless = new Chromeless();
     let run = await scenario.run(chromeless, 'CHROMELESS');
 	console.log(JSON.stringify(run));
+
+Run Puppeteer 
+--------------
+
+By Puppeteer
+
+    const puppeteer = require('puppeteer');	
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+	let run = await scenario.run(page, 'PUPPETEER');
+    console.log(JSON.stringify(run));
 

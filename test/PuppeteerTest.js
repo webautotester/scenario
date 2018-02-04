@@ -36,7 +36,7 @@ scenario.addAction(waitAction);
 describe('Execute Actions', function () {
 	this.timeout(40000);
 	describe('Run Scenario', function() {
-		it.only('should run the scenario with Puppeteer', async function() {
+		it('should run the scenario with Puppeteer', async function() {
             const browser = await puppeteer.launch({headless: false});
             const page = await browser.newPage();
 			let run = await scenario.run(page, 'PUPPETEER');

@@ -29,5 +29,16 @@ export default class MouseDownAction extends SelectorAction {
 	chromelessRun(chromeless) {
 		return chromeless.mousedown(this.selector);
 	}
+
+	puppeteerRun(puppeteer) {
+		/* const element = await puppeteer.$(this.selector);
+		if (element === null) return puppeteer;
+
+		const boundingBox = await element.boundingBox();
+
+		await puppeteer.mouse.move(boundingBox.x, boundingBox.y)
+
+		return puppeter.mouse.down(); */
+	}
 	
 }

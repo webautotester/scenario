@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/webautotester/scenario.svg?branch=master)](https://travis-ci.org/webautotester/scenario)
 
-JS Library to Design and Play Scraping Scenario [Puppeteer](https://github.com/GoogleChrome/puppeteer)
-=======================================================================================================
+JS Library to Design and Play Scraping Scenario (compliant with [Puppeteer](https://github.com/GoogleChrome/puppeteer))
+=======================================================================================================================
 
 Very simple library to create Scraping actions and scenario.
 
@@ -18,6 +18,7 @@ if you want to use it:
     npm test
 
 Or 
+
     npm install wat_scenario
 
 

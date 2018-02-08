@@ -20,27 +20,32 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
 import * as ActionFactory from './ActionFactory';
-import GotoAction from './GotoAction';
-import ClickAction from './ClickAction';
-import MouseOverAction from './MouseOverAction';
-import MouseDownAction from './MouseDownAction';
-import MouseUpAction from './MouseUpAction';
-import TypeAction from './TypeAction';
-import ScrollToAction from './ScrollToAction';
-import WaitAction from './WaitAction';
 import BackAction from './BackAction';
+import ClickAction from './ClickAction';
+import ForwardAction from './ForwardAction';
+import GotoAction from './GotoAction';
+import HoverAction from './HoverAction';
+import MouseDownAction from './MouseDownAction';
+import MouseMoveAction from './MouseMoveAction';
+import MouseUpAction from './MouseUpAction';
+import SelectAction from './SelectAction';
+import TypeAction from './TypeAction';
+import WaitAction from './WaitAction';
+
 import Scenario from './Scenario';
 
 export {
-	GotoAction,
-	ClickAction,
-	MouseOverAction,
-	MouseDownAction,
-	MouseUpAction,
-	TypeAction,
-	ScrollToAction,
-	WaitAction,
-	BackAction,
 	ActionFactory,
+	BackAction,
+	ClickAction,
+	ForwardAction,
+	GotoAction,
+	HoverAction,
+	MouseDownAction,
+	MouseMoveAction,
+	MouseUpAction,
+	SelectAction,
+	TypeAction,
+	WaitAction,
 	Scenario
 };

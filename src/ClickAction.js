@@ -22,16 +22,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 import SelectorAction from './SelectorAction';
 
 export default class ClickAction extends SelectorAction {
-	nightmareRun(nightmare) {
-		return nightmare.click(this.selector);
-	}
-
-	chromelessRun(chromeless) {
-		return chromeless.click(this.selector);
-	}
-
-	puppeteerRun(puppeteer) {
-		return puppeteer.click(this.selector);
+	run(page) {
+		return page.click(this.selector);
 	}
 
 }

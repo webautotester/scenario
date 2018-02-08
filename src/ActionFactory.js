@@ -19,39 +19,42 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
-import GotoAction from './GotoAction';
-import ClickAction from './ClickAction';
-import MouseOverAction from './MouseOverAction';
-import MouseDownAction from './MouseDownAction';
-import MouseUpAction from './MouseUpAction';
-import TypeAction from './TypeAction';
-import ScrollToAction from './ScrollToAction';
-import WaitAction from './WaitAction';
 import BackAction from './BackAction';
+import ClickAction from './ClickAction';
+import ForwardAction from './ForwardAction';
+import GotoAction from './GotoAction';
+import HoverAction from './HoverAction';
+import MouseDownAction from './MouseDownAction';
+import MouseMoveAction from './MouseMoveAction';
+import MouseUpAction from './MouseUpAction';
 import SelectAction from './SelectAction';
+import TypeAction from './TypeAction';
+import WaitAction from './WaitAction';
 
 export function createAction(actionJSON) {
 	switch (actionJSON.type) {
-	case 'GotoAction':
-		return new GotoAction(actionJSON.url);
-	case 'ClickAction':
-		return new ClickAction(actionJSON.selector);
-	case 'MouseOverAction':
-		return new MouseOverAction(actionJSON.selector);
-	case 'MouseUpAction':
-		return new MouseUpAction(actionJSON.selector);
-	case 'MouseDownAction':
-		return new MouseDownAction(actionJSON.selector);
-	case 'TypeAction':
-		return new TypeAction(actionJSON.selector, actionJSON.text);
-	case 'ScrollToAction':
-		return new ScrollToAction(actionJSON.x, actionJSON.x);
-	case 'WaitAction':
-		return new WaitAction(actionJSON.ms);
 	case 'BackAction':
 		return new BackAction();
+	case 'ClickAction':
+		return new ClickAction(actionJSON.selector);
+	case 'ForwardAction':
+		return new ForwardAction();
+	case 'GotoAction':
+		return new GotoAction(actionJSON.url);
+	case 'HoverAction':
+		return new HoverAction(actionJSON.selector);
+	case 'MouseDownAction':
+		return new MouseDownAction();
+	case 'MouseMoveAction':
+		return new MouseMoveAction(actionJSON.x, actionJSON.y);
+	case 'MouseUpAction':
+		return new MouseUpAction();
 	case 'SelectAction':
 		return new SelectAction(actionJSON.selector, actionJSON.option);
+	case 'TypeAction':
+		return new TypeAction(actionJSON.selector, actionJSON.text);
+	case 'WaitAction':
+		return new WaitAction(actionJSON.ms);
 	}
 	return new WaitAction(1000);
 }

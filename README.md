@@ -5,7 +5,7 @@ JS Library For Playing With Scraping Scenario (Compliant with NightMareJS and Ch
 
 Very simple library to create Scraping actions and scenario.
 
-Then Scenario can be played by [NightmareJS](https://github.com/segmentio/nightmare), [Chromeless](https://github.com/graphcool/chromeless) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).
+Then Scenario can be played by [Puppeteer](https://github.com/GoogleChrome/puppeteer).
 
 
 Install
@@ -45,26 +45,6 @@ You can also create a scenario by adding actions to it.
     scenario.addAction(clickAction);
     scenario.addAction(waitAction);
 
-
-Run Nightmare 
-------------
-
-You can then ask a scenarion to be played by Nightmare
-
-    const Nightmare = require('nightmare');	
-    const nightmare = new Nightmare({show:true});
-    let run = await scenario.run(nightmare, 'NIGHTMARE');
-	console.log(JSON.stringify(run));
-
-Run Chromeless 
---------------
-
-By Chromeless
-
-    const {Chromeless} = require('chromeless');	
-    const chromeless = new Chromeless();
-    let run = await scenario.run(chromeless, 'CHROMELESS');
-	console.log(JSON.stringify(run));
 
 Run Puppeteer 
 --------------

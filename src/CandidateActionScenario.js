@@ -19,60 +19,20 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
-import * as ActionFactory from './ActionFactory';
-import WaitAction from './WaitAction.js';
+import Scenario from './Scenario';
 
-export default class Scenario {
+export default class CandidateActionScenario extends Scenario {
 
 	constructor(actionsJSON) {
-		this.actions = [];
-		if (actionsJSON) {
-			actionsJSON.forEach(ac => {
-				this.addAction(ActionFactory.createAction(ac));
-			});
-		}
-	}
-
-	toString() {
-		return `[${this.actions.join(', ')}]`;
-	}
-
-	toJSON() {
-		return JSON.stringify(this.actions);
-	}
-
-	addAction(action) {
-		this.actions.push(action);
-	}
-
-	get depth() {
-		return this.actions.length;
-	}
-
-	duplicate() {
-		var dupication = new Scenario();
-		this.actions.forEach(ac => dupication.addAction(ac));
-		return dupication;
-	}
-
-	equalsTo(scenario) {
-		if (this.actions.length === scenario.actions.length) {
-			for (var i = 0; i < this.actions.length; i++) {
-				if (! this.actions[i].equalsTo(scenario.actions[i])) {
-					return false;
-				}
-			}
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	async run(page) {
-		let i;
+		super(actionsJSON);
+    }
+    
+    async scanCandidateAction(browser, browserKind) {
+        let i;
 		try {
 			for (i=0 ; i < this.actions.length; i++) {
-				await this.actions[i].run(page);
+                await this.actions[i].run(browser, browserKind);
+                await this.scanHTML(browser, browserKind);
 			}
 			return {
 				success : true,
@@ -85,5 +45,38 @@ export default class Scenario {
 				error : err
 			}
 		}
-	}
+    }
+
+    async scanHTML(browser, browserKind) {
+        switch (this.browserKind) {
+            case 'NIGHTMARE': 
+                return this.scanHTMLWithNightmare(browser);
+            case 'CHROMELESS':
+                return this.scanHTMLWithChromeless(browser);
+            case 'PUPPETEER':
+                return this.scanHTMLWithPuppeteer(browser);
+            default:
+                throw `${this.browserKind} is not supported, the worker can't evaluate the HTML analysis`;
+        }
+
+    }
+
+    async scanHTMLWithNightmare(browser) {
+        let result = await browser.evaluate(htmlScan);
+        return result;
+    }
+
+    async scanHTMLWithChromeless(browser) {
+        let result = await browser.wait(2000).evaluate(htmlScan);
+        return result;
+    }
+
+    async scanHTMLWithPuppeteer(browser) {
+        let result = await browser.evaluate(htmlScan);
+        return result;
+    }
+}
+
+function htmlScan() {
+
 }

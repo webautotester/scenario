@@ -19,10 +19,10 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
-import SelectorAction from './SelectorAction';
+import XYAction from './XYAction';
 
-export default class MouseOverAction extends SelectorAction {
-	nightmareRun(nightmare) {
-		return nightmare.mouseover(this.selector);
+export default class MouseMoveAction extends XYAction {
+	run(page) {
+		return page.mouse.move(this.x, this.y);
 	}
 }

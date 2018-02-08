@@ -39,7 +39,7 @@ describe('Execute Actions', function () {
 		it('should run the scenario with Puppeteer', async function() {
             const browser = await puppeteer.launch({headless: false});
             const page = await browser.newPage();
-			let run = await scenario.run(page, 'PUPPETEER');
+			let run = await scenario.run(page);
 			console.log(JSON.stringify(run));
 			assert(run.success);
 		});

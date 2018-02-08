@@ -19,15 +19,12 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
-import SelectorAction from './SelectorAction';
+import Action from './Action';
 
-export default class MouseUpAction extends SelectorAction {
-	nightmareRun(nightmare) {
-		return nightmare.mouseup(this.selector);
+export default class MouseUpAction extends Action {
+
+	run(page) {
+		return page.mouse.up();
 	}
-
-	chromelessRun(chromeless) {
-		return chromeless.mouseup(this.selector);
-	}
-
+	
 }

@@ -32,11 +32,7 @@ export default class SelectAction extends SelectorAction {
 		return `${super.toString()}: ${this.selector} ${this.option}`;
 	}
     
-	attachTo(browser) {
-		return browser.select(this.selector, this.option);
-	}
-
-	nightmareRun(nightmare) {
-		return nightmare.select(this.selector, this.option);
+	run(page) {
+		return page.select(this.selector, this.option);
 	}
 }

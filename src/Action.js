@@ -19,8 +19,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
-import BrowserKind from './BrowserKind';
-
 export default class Action {
 	constructor() {
 		this.type = this.constructor.name;
@@ -34,26 +32,6 @@ export default class Action {
 		return this.type === action.type;
 	}
 
-	nightmareRun(nightmare) {
-		return nightmare;
-	}
-
-	chromelessRun(chromeless) {
-		return chromeless;
-	}
-
-	puppeteerRun(puppeterPage) {
-		return puppeterPage;
-	}
-
-	run(browser, browserKind) {
-		switch (browserKind) {
-		case BrowserKind.NIGHTMARE:
-			return this.nightmareRun(browser);
-		case BrowserKind.CHROMELESS:
-			return this.chromelessRun(browser);
-		case BrowserKind.PUPPETEER:
-			return this.puppeteerRun(browser);
-		}
+	run(page) {
 	}
 }

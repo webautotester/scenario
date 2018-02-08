@@ -28,16 +28,8 @@ export default class TypeAction extends Action {
 		this.text = text;
 	}
 
-	nightmareRun(nightmare) {
-		return nightmare.type(this.selector, this.text);
-	}
-
-	chromelessRun(chromeless) {
-		return chromeless.type(this.text, this.selector).html();
-	}
-
-	puppeteerRun(puppeteer) {
-		return puppeteer.type(this.selector, this.text);
+	run(page) {
+		return page.type(this.selector, this.text);
 	}
 
 	toString() {

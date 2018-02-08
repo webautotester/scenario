@@ -27,16 +27,8 @@ export default class WaitAction extends Action {
 		this.ms = ms;
 	}
 
-	nightmareRun(nightmare) {
-		return nightmare.wait(this.ms);
-	}
-
-	chromelessRun(chromeless) {
-		return chromeless.wait(this.ms).html();
-	}
-
-	puppeteerRun(puppeteer) {
-		return puppeteer.waitFor(this.ms);
+	run(page) {
+		return page.waitFor(this.ms);
 	}
 
 	toString() {

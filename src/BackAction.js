@@ -22,11 +22,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 import Action from './Action';
 
 export default class BackAction extends Action {
-	nightmareRun(nightmare) {
-		return nightmare.back();
-	}
-
-	puppeteerRun(browser) {
-		return browser.goBack();
+	run(page) {
+		return page.goBack();
 	}
 }

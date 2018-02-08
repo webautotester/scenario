@@ -21,7 +21,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
 const lib = require('../lib');
 const assert = require('assert');
-const Nightmare = require('nightmare');	
 
 const scenario = new lib.Scenario();
 const gotoAction = new lib.GotoAction('https://duckduckgo.com');

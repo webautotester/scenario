@@ -19,26 +19,12 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
-import SelectorAction from './SelectorAction';
+import Action from './Action';
 
-export default class MouseDownAction extends SelectorAction {
-	nightmareRun(nightmare) {
-		return nightmare.mousedown(this.selector);
-	}
+export default class MouseDownAction extends Action {
 
-	chromelessRun(chromeless) {
-		return chromeless.mousedown(this.selector);
-	}
-
-	puppeteerRun(puppeteer) {
-		/* const element = await puppeteer.$(this.selector);
-		if (element === null) return puppeteer;
-
-		const boundingBox = await element.boundingBox();
-
-		await puppeteer.mouse.move(boundingBox.x, boundingBox.y)
-
-		return puppeter.mouse.down(); */
+	run(page) {
+		return page.mouse.down();
 	}
 	
 }

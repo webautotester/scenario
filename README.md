@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/webautotester/scenario.svg?branch=master)](https://travis-ci.org/webautotester/scenario)
 
-JS Library For Playing With Scraping Scenario (Compliant with NightMareJS and Chromeless)
-=========================================================================================
+JS Library to Design and Play Scraping Scenario [Puppeteer](https://github.com/GoogleChrome/puppeteer)
+=======================================================================================================
 
 Very simple library to create Scraping actions and scenario.
 

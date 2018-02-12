@@ -1,6 +1,6 @@
 {
   "name": "wat_scenario",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "JS Library For Creating Scrapping Scenario. Compliant with Puppeteer",
   "main": "./lib/index.js",
   "scripts": {

@@ -27,7 +27,7 @@ const scenario = new lib.Scenario();
 const gotoAction = new lib.GotoAction('https://duckduckgo.com');
 const typeAction = new lib.TypeAction('#search_form_input_homepage','github nightmare');
 const clickAction = new lib.ClickAction('#search_button_homepage');
-const waitAction = new lib.WaitAction('#r1-0 a.result__a');
+const waitAction = new lib.WaitAction(4000);
 scenario.addAction(gotoAction);
 scenario.addAction(typeAction);
 scenario.addAction(clickAction);
@@ -37,7 +37,7 @@ describe('Execute Actions', function () {
 	this.timeout(40000);
 	describe('Run Scenario', function() {
 		it('should run the scenario with Puppeteer', async function() {
-            const browser = await puppeteer.launch({args:['--no-sandbox']});
+            const browser = await puppeteer.launch({headless: false, args:['--no-sandbox']});
             const page = await browser.newPage();
 			let run = await scenario.run(page);
 			console.log(JSON.stringify(run));
